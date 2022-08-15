@@ -3,6 +3,7 @@ import "../../styles/forms.css";
 import "./StepOneForm.css";
 import { UserContext } from "../../context/UserContext";
 import BeatLoader from "react-spinners/BeatLoader";
+import { determineTheGender } from "../../Apis/GenderApiFunctions";
 
 export default function StepOneForm(props) {
   //context _______________________________________________________________________________
@@ -37,26 +38,16 @@ export default function StepOneForm(props) {
   function firstLetterCase(string) {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
   }
-  const determineTheGender = async (userFirstname) => {
-    setLoadingResponseApi(true);
-    console.log("appel api");
-    const response = await fetch(
-      `https://api.genderize.io?name=${userFirstname}`
-    );
-    const convertResponse = await response.json();
-    setLoadingResponseApi(false);
-    const gender = convertResponse.gender;
-    const probability = convertResponse.probability;
 
-    return { gender: gender, probability: probability };
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (lastnameValue === "" || firstnameValue === "") {
       return setErrorMessage("Please, complete all inputs");
-    } else if (user === null) {
+    } else if (user === null || user.firstname !==firstnameValue) {
       setErrorMessage(null);
+      setLoadingResponseApi(true)
       const genderAndProbability = await determineTheGender(firstnameValue);
       setUser({
         ...user,
@@ -65,6 +56,7 @@ export default function StepOneForm(props) {
         gender: firstLetterCase(genderAndProbability.gender),
         probability: genderAndProbability.probability,
       });
+      setLoadingResponseApi(false)
       return setFormToDisplay(1);
     } else {
       setUser({
