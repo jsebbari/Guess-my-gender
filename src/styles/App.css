@@ -34,9 +34,14 @@
 }
 
 .title-form {
-  margin-bottom: 2rem;
+  margin-bottom: .5rem;
   color: white;
   padding: 0 2rem;
+}
+
+.progress-bar{
+  width:300px;
+  margin:1rem;
 }
 
 @media (width <= 450px) {

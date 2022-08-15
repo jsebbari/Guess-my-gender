@@ -34,11 +34,12 @@ export default function StepTwoForm(props) {
 
     if (ageValue === "") {
       setErrorMessage("Please, complete all inputs");
-    } else {
+    } else if(ageValue=== user.age){
+      return setFormToDisplay(2);
+    }else {
       setErrorMessage(null);
-
       setUser({ ...user, age: ageValue });
-      setFormToDisplay(2);
+     return  setFormToDisplay(2);
     }
   };
 
@@ -70,6 +71,8 @@ export default function StepTwoForm(props) {
             value={ageValue}
             ref={ageRef}
             placeholder="Age*"
+            min="1"
+            max="100"
             required
           />
           <button type="submit" className="submit-button">
