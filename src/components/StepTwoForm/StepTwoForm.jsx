@@ -35,6 +35,7 @@ export default function StepTwoForm(props) {
     if (ageValue === "") {
       setErrorMessage("Please, complete all inputs");
     } else if(ageValue=== user.age){
+      setErrorMessage(null);
       return setFormToDisplay(2);
     }else {
       setErrorMessage(null);
