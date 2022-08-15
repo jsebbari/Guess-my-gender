@@ -22,7 +22,7 @@ export default function Result() {
       }
   return (
     <div className="result">
-        <FaRegAddressCard size={50} color="silver"/>
+        <FaRegAddressCard size={60} color="silver"/>
       <ul>
         <li>
           <h5>{firstname} {lastname}</h5>
