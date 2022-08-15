@@ -4,10 +4,6 @@ import StepOneForm from './components/StepOneForm';
 import StepTwoForm from './components/StepTwoForm';
 import Result from './components/Result'
 import { BsArrowLeftSquareFill } from 'react-icons/bs';
-import Logo from './components/Logo';
-
-
-
 
 
 function App() {
@@ -42,7 +38,6 @@ const backStep =() => {
     <div className="App">
    
       <div className="forms-container">
-      <Logo/>
      { formToDisplay>0&& <BsArrowLeftSquareFill size={40} color="silver" className="back-button" onClick ={backStep}/>}
         <h1 className='title-form'>{titleGenerator(formToDisplay)}</h1>
         { formToDisplay===0&& <StepOneForm setFormToDisplay={setFormToDisplay}/> }
