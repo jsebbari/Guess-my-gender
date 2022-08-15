@@ -39,9 +39,8 @@
 }
 
 .error-message {
-  position: absolute;
   bottom: 5rem;
-  color: rgb(195, 151, 151);
+  color: rgb(192, 91, 91);
   padding: 0.5rem 1rem;
 }
 

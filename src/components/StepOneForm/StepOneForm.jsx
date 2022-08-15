@@ -27,6 +27,18 @@ export default function StepOneForm(props) {
     return firstnameRef.current.focus();
   }, [user]);
 
+  useEffect(() => {
+    const errorNameApi =()=> {
+      setErrorMessage("Oups, we don't find this name, try again please")
+      setLoadingResponseApi(false)
+      return 
+    }
+    if (loadingResponseApi) {
+      setTimeout(errorNameApi, 4000)
+    }
+
+  }, [loadingResponseApi]);
+
   // variables __________________________________________________________________________
   const { setFormToDisplay } = props;
   const loader = (
@@ -38,7 +50,6 @@ export default function StepOneForm(props) {
   function firstLetterCase(string) {
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
   }
-
 
 
   const handleSubmit = async (e) => {
@@ -79,10 +90,9 @@ export default function StepOneForm(props) {
 
   return (
     <div className="stepe-one-form">
+    
       <form className="forms" onSubmit={handleSubmit} id="name-form">
-        {setErrorMessage !== null && (
-          <p className="error-message">{errorMessage}</p>
-        )}
+    
         <input
           type="text"
           name="firstname"
@@ -103,6 +113,9 @@ export default function StepOneForm(props) {
           required
         />
       </form>
+      {setErrorMessage !== null && (
+          <p className="error-message">{errorMessage}</p>
+        )}
       <button className="submit-button" form="name-form">
         {loadingResponseApi ? loader : "Next"}
       </button>
