@@ -1,0 +1,19 @@
+.logo {
+    position:absolute;
+    z-index:3;
+    top:5rem;
+    display: flex;
+    padding:1rem;
+    color:white;
+    background-image: linear-gradient(to right, #4e999c7e 0%, #4f9e98 0%, #4d798b 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+}
+
+@media (width <= 450px){
+    .logo{
+       
+        padding:.2rem;
+        font-size: small;
+        top:2rem;
+        right:1rem;
+    }
+}

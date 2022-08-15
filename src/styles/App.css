@@ -3,7 +3,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../images/bg-app.jpg');
+    background-image: url('../images/bg-app-medium.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,8 +24,8 @@
 
 .back-button{
     position: absolute;
-    left:1rem;
-    top:1rem;
+    left:2rem;
+    top:2rem;
     cursor: pointer;
     transition: transform  .3s  ease-in;
 }
@@ -36,9 +36,28 @@
 }
 
 .title-form{
+    margin-bottom: 2rem;
     color:white;
-    position:absolute;
-    top:2rem;
     padding:0 2rem;
 
+}
+
+@media (width <= 450px){
+    .forms-container{
+        width:100%;
+        min-height:100vh;
+    }
+
+    .title-form{
+        margin-top:1rem;
+    }
+    .App{
+        background-image: url('../images/bg-app-small.jpg');
+    }
+
+    .title-form{
+        font-size: x-large;
+    }
+
+  
 }

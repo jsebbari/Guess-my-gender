@@ -1,12 +1,13 @@
-import {useContext, useState, useEffect} from 'react'
+import {useContext} from 'react'
 import '../../styles/forms.css'
+import "./Result.css"
 import { UserContext } from '../../context/UserContext'
 
 
 export default function Result() {
 
 //context _______________________________________________________________________________
-const {user, setUser} = useContext(UserContext)
+const {user} = useContext(UserContext)
 
 
 
@@ -15,13 +16,13 @@ const {user, setUser} = useContext(UserContext)
 const {firstname,lastname,gender,age} = user
 
   return (
-  <div>
-    <h3>Your personal information</h3>
+  <div className='result'>
+
     <ul>
-     <li>firstname: {firstname}</li> 
-     <li>lastname:{lastname}</li> 
-     <li>gender:{gender}</li> 
-     <li>age:{age} years</li> 
+     <li> <span className="label-list-result">Firstname</span><h5>{firstname}</h5></li> 
+     <li>  <span className="label-list-result">Lastname</span><h5>{lastname}</h5></li> 
+     <li>  <span className="label-list-result">Gender</span> <h5>{gender}</h5></li> 
+     <li> <span className="label-list-result">Age</span> <h5>{age} years</h5></li> 
     </ul>
   </div>
   )

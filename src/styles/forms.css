@@ -25,9 +25,8 @@
 
 .submit-button {
     cursor: pointer;
-    position: absolute;
-    bottom:8rem;
-    padding:1rem 3rem;
+    margin-top:1rem;
+    padding:1rem 4rem;
     background-color: #78142aa9;
     border:none;
     color:silver;
@@ -44,4 +43,18 @@
     bottom:5rem;
     color:rgb(195, 151, 151);
     padding: .5rem 1rem;
+}
+
+
+
+@media (width <= 450px){
+    .forms {
+        flex-direction: column;
+    }
+    .forms input{
+        margin:.7rem;
+    }
+    .submit-button{
+        bottom:10rem;
+    }
 }

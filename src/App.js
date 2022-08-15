@@ -4,6 +4,8 @@ import StepOneForm from './components/StepOneForm';
 import StepTwoForm from './components/StepTwoForm';
 import Result from './components/Result'
 import { BsArrowLeftSquareFill } from 'react-icons/bs';
+import Logo from './components/Logo';
+
 
 
 
@@ -23,28 +25,30 @@ function App() {
      return "2/3 How old are you ?"
     
     case 2:
-     return "3/3 Welcome"
+     return "3/3 Nice to meet you"
+
+     default:
+      return
   
   }
 }
 
 const backStep =() => {
-  if (formToDisplay>0) setFormToDisplay(formToDisplay-1)
+  formToDisplay>0&& setFormToDisplay(formToDisplay-1)
 }
-
 
 
   return (
     <div className="App">
-   
+    <Logo/>
       <div className="forms-container">
-      <BsArrowLeftSquareFill size={25} color="silver" className="back-button" onClick ={backStep}/>
+     { formToDisplay>0&& <BsArrowLeftSquareFill size={40} color="silver" className="back-button" onClick ={backStep}/>}
         <h1 className='title-form'>{titleGenerator(formToDisplay)}</h1>
         { formToDisplay===0&& <StepOneForm setFormToDisplay={setFormToDisplay}/> }
         { formToDisplay===1&& <StepTwoForm setFormToDisplay={setFormToDisplay}/> }
         { formToDisplay===2&& <Result setFormToDisplay={setFormToDisplay}/> }
-        
       </div>
+
     </div>
   );
 }

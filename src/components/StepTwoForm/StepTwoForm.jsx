@@ -28,7 +28,7 @@ useEffect(() => {
 
 return ageRef.current.focus()
 
-}, [])
+}, [user])
 
 // variables __________________________________________________________________________
 const {setFormToDisplay} = props
@@ -58,15 +58,16 @@ const handleAgeInput = (e) => {
 
   return (
     <div className='step-two-form'>
-    
       <div className='gender-container'>
         <p>Gender: <span>{gender}</span></p>
         <p>Probability: <span>{probability} %</span></p>
       </div>
       <form onSubmit={handleSubmit} className='forms'>
           {setErrorMessage!==null&& <p className='error-message'>{errorMessage}</p>}
-          <input type="number" name="age" id="age" onChange={handleAgeInput} value={ageValue} ref={ageRef} placeholder="Age*" required/>
-          <button type="submit" className='submit-button'>Next</button>
+          <div className='step-two-form-container'>
+            <input type="number" name="age" id="age" onChange={handleAgeInput} value={ageValue} ref={ageRef} placeholder="Age*" required/>
+            <button type="submit" className='submit-button'>Next</button>
+          </div>
       </form>
   </div>
   )
