@@ -1,63 +1,57 @@
-.App{
-    height:100vh;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('../images/bg-app-medium.jpg');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/bg-app-medium.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-
-.forms-container{
-    position:relative;
-    background-color: rgba(8, 7, 7, 0.663);
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    flex-direction: column;
-    width:900px;
-    height:500px;
+.forms-container {
+  position: relative;
+  background-color: rgba(8, 7, 7, 0.663);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 900px;
+  height: 500px;
 }
 
-.back-button{
-    position: absolute;
-    left:2rem;
-    top:2rem;
-    cursor: pointer;
-    transition: transform  .3s  ease-in;
+.back-button {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in;
 }
 
 .back-button:hover {
-    transform:scale(1.2);
-    
+  transform: scale(1.2);
 }
 
-.title-form{
-    margin-bottom: 2rem;
-    color:white;
-    padding:0 2rem;
-
+.title-form {
+  margin-bottom: 2rem;
+  color: white;
+  padding: 0 2rem;
 }
 
-@media (width <= 450px){
-    .forms-container{
-        width:100%;
-        min-height:100vh;
-    }
+@media (width <= 450px) {
+  .forms-container {
+    width: 100%;
+    min-height: 100vh;
+  }
 
-    .title-form{
-        margin-top:1rem;
-    }
-    .App{
-        background-image: url('../images/bg-app-small.jpg');
-    }
+  .title-form {
+    margin-top: 1rem;
+  }
+  .App {
+    background-image: url("../images/bg-app-small.jpg");
+  }
 
-    .title-form{
-        font-size: x-large;
-    }
-
-  
+  .title-form {
+    font-size: x-large;
+  }
 }
