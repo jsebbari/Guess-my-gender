@@ -15,21 +15,17 @@ export default function Result() {
     <div className="result">
       <ul>
         <li>
-          {" "}
           <span className="label-list-result">Firstname</span>
           <h5>{firstname}</h5>
         </li>
         <li>
-          {" "}
           <span className="label-list-result">Lastname</span>
           <h5>{lastname}</h5>
         </li>
         <li>
-          {" "}
           <span className="label-list-result">Gender</span> <h5>{gender}</h5>
         </li>
         <li>
-          {" "}
           <span className="label-list-result">Age</span> <h5>{age} years</h5>
         </li>
       </ul>
