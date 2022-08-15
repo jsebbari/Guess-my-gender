@@ -40,8 +40,9 @@ const backStep =() => {
 
   return (
     <div className="App">
-    <Logo/>
+   
       <div className="forms-container">
+      <Logo/>
      { formToDisplay>0&& <BsArrowLeftSquareFill size={40} color="silver" className="back-button" onClick ={backStep}/>}
         <h1 className='title-form'>{titleGenerator(formToDisplay)}</h1>
         { formToDisplay===0&& <StepOneForm setFormToDisplay={setFormToDisplay}/> }

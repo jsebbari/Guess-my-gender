@@ -1,7 +1,10 @@
 .logo {
     position:absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
     z-index:3;
-    top:5rem;
+    top:2rem;
     display: flex;
     padding:1rem;
     color:white;
@@ -12,8 +15,9 @@
     .logo{
        
         padding:.2rem;
-        font-size: small;
+        font-size:x-small;
         top:2rem;
         right:1rem;
+        
     }
 }
