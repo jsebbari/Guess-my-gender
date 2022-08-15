@@ -1,0 +1,13 @@
+.step-two-form {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gender-container {
+    color:white;
+    /* border: 1px silver solid; */
+    padding:3rem;
+    background-color: #79142a6d;
+}
+

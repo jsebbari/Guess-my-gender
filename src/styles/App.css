@@ -1,0 +1,44 @@
+.App{
+    height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/bg-app.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+.forms-container{
+    position:relative;
+    background-color: rgba(8, 7, 7, 0.663);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width:900px;
+    height:500px;
+}
+
+.back-button{
+    position: absolute;
+    left:1rem;
+    top:1rem;
+    cursor: pointer;
+    transition: transform  .3s  ease-in;
+}
+
+.back-button:hover {
+    transform:scale(1.2);
+    
+}
+
+.title-form{
+    color:white;
+    position:absolute;
+    top:2rem;
+    padding:0 2rem;
+
+}
