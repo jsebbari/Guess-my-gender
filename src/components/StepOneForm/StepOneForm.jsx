@@ -4,6 +4,7 @@ import "./StepOneForm.css";
 import { UserContext } from "../../context/UserContext";
 import BeatLoader from "react-spinners/BeatLoader";
 import { determineTheGender } from "../../Apis/GenderApiFunctions";
+import { firstLetterCase } from "./functions/stepOneFunctions";
 
 export default function StepOneForm(props) {
   //context _______________________________________________________________________________
@@ -28,15 +29,13 @@ export default function StepOneForm(props) {
   }, [user]);
 
   useEffect(() => {
-    const errorNameApi =()=> {
-      setErrorMessage("Oups, we don't find this name, try again please")
-      setLoadingResponseApi(false)
-      return 
-    }
+    const errorNameApi = () => {
+      setErrorMessage("Oups, we don't find this firstname, try again please");
+      return setLoadingResponseApi(false);
+    };
     if (loadingResponseApi) {
-      setTimeout(errorNameApi, 4000)
+      setTimeout(errorNameApi, 5000);
     }
-
   }, [loadingResponseApi]);
 
   // variables __________________________________________________________________________
@@ -47,18 +46,28 @@ export default function StepOneForm(props) {
 
   // functions ____________________________________________________________________________
 
-  function firstLetterCase(string) {
-    return string[0].toUpperCase() + string.slice(1).toLowerCase();
-  }
+  const handleChangeFirstnameInput = (e) => {
+    loadingResponseApi && setLoadingResponseApi(false);
+    setErrorMessage(null);
+    setFirstnameValue(e.target.value);
+  };
 
+  const handleChangeLastnameInput = (e) => {
+    loadingResponseApi && setLoadingResponseApi(false);
+    setErrorMessage(null);
+    setLastnameValue(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (lastnameValue === "" || firstnameValue === "") {
       return setErrorMessage("Please, complete all inputs");
-    } else if (user === null || user.firstname !==firstnameValue) {
+    } else if (
+      user === null ||
+      user.firstname !== firstLetterCase(firstnameValue)
+    ) {
       setErrorMessage(null);
-      setLoadingResponseApi(true)
+      setLoadingResponseApi(true);
       const genderAndProbability = await determineTheGender(firstnameValue);
       setUser({
         ...user,
@@ -67,37 +76,25 @@ export default function StepOneForm(props) {
         gender: firstLetterCase(genderAndProbability.gender),
         probability: genderAndProbability.probability,
       });
-      setLoadingResponseApi(false)
+      setLoadingResponseApi(false);
       return setFormToDisplay(1);
     } else {
       setUser({
         ...user,
-        lastname: lastnameValue,
+        lastname: firstLetterCase(lastnameValue),
       });
       return setFormToDisplay(1);
     }
   };
 
-  const handleFirstnameInput = (e) => {
-    setErrorMessage(null);
-    setFirstnameValue(e.target.value);
-  };
-
-  const handleLastnameInput = (e) => {
-    setErrorMessage(null);
-    setLastnameValue(e.target.value);
-  };
-
   return (
     <div className="stepe-one-form">
-    
       <form className="forms" onSubmit={handleSubmit} id="name-form">
-    
         <input
           type="text"
           name="firstname"
           id="firstname"
-          onChange={handleFirstnameInput}
+          onChange={handleChangeFirstnameInput}
           ref={firstnameRef}
           placeholder="Firstname*"
           value={firstnameValue}
@@ -107,15 +104,15 @@ export default function StepOneForm(props) {
           type="text"
           name="lastname"
           id="lastname"
-          onChange={handleLastnameInput}
+          onChange={handleChangeLastnameInput}
           placeholder="Lastname*"
           value={lastnameValue}
           required
         />
       </form>
       {setErrorMessage !== null && (
-          <p className="error-message">{errorMessage}</p>
-        )}
+        <p className="error-message">{errorMessage}</p>
+      )}
       <button className="submit-button" form="name-form">
         {loadingResponseApi ? loader : "Next"}
       </button>

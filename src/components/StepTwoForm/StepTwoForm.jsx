@@ -34,17 +34,17 @@ export default function StepTwoForm(props) {
 
     if (ageValue === "") {
       setErrorMessage("Please, complete all inputs");
-    } else if(ageValue=== user.age){
+    } else if (ageValue === user.age) {
       setErrorMessage(null);
       return setFormToDisplay(2);
-    }else {
+    } else {
       setErrorMessage(null);
       setUser({ ...user, age: ageValue });
-     return  setFormToDisplay(2);
+      return setFormToDisplay(2);
     }
   };
 
-  const handleAgeInput = (e) => {
+  const handleChangeAgeInput = (e) => {
     setErrorMessage(null);
     setAgeValue(e.target.value);
   };
@@ -68,7 +68,7 @@ export default function StepTwoForm(props) {
             type="number"
             name="age"
             id="age"
-            onChange={handleAgeInput}
+            onChange={handleChangeAgeInput}
             value={ageValue}
             ref={ageRef}
             placeholder="Age*"

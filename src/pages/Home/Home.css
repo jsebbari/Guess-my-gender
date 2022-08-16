@@ -1,9 +1,9 @@
-.App {
+.home {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/bg-app-medium.jpg");
+  background-image: url("../../images/bg-home-medium.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -54,8 +54,8 @@
   .title-form {
     margin-top: 1rem;
   }
-  .App {
-    background-image: url("../images/bg-app-small.jpg");
+  .home {
+    background-image: url("../../images/bg-home-small.jpg");
   }
 
   .title-form {
