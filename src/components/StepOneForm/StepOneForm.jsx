@@ -28,16 +28,6 @@ export default function StepOneForm(props) {
     return firstnameRef.current.focus();
   }, [user]);
 
-  useEffect(() => {
-    const errorNameApi = () => {
-      setErrorMessage("Oups, we don't find this firstname, try again please");
-      return setLoadingResponseApi(false);
-    };
-    if (loadingResponseApi) {
-      setTimeout(errorNameApi, 5000);
-    }
-  }, [loadingResponseApi]);
-
   // variables __________________________________________________________________________
   const { setFormToDisplay } = props;
   const loader = (
@@ -47,43 +37,46 @@ export default function StepOneForm(props) {
   // functions ____________________________________________________________________________
 
   const handleChangeFirstnameInput = (e) => {
-    loadingResponseApi && setLoadingResponseApi(false);
     setErrorMessage(null);
     setFirstnameValue(e.target.value);
   };
 
   const handleChangeLastnameInput = (e) => {
-    loadingResponseApi && setLoadingResponseApi(false);
     setErrorMessage(null);
     setLastnameValue(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (lastnameValue === "" || firstnameValue === "") {
-      return setErrorMessage("Please, complete all inputs");
-    } else if (
-      user === null ||
-      user.firstname !== firstLetterCase(firstnameValue)
-    ) {
-      setErrorMessage(null);
-      setLoadingResponseApi(true);
-      const genderAndProbability = await determineTheGender(firstnameValue);
-      setUser({
-        ...user,
-        firstname: firstLetterCase(firstnameValue),
-        lastname: firstLetterCase(lastnameValue),
-        gender: firstLetterCase(genderAndProbability.gender),
-        probability: genderAndProbability.probability,
-      });
+
+    try {
+      if (lastnameValue === "" || firstnameValue === "") {
+        return setErrorMessage("Please, complete all inputs");
+      } else if (
+        user === null || user.firstname !== firstLetterCase(firstnameValue)
+      ) {
+        setErrorMessage(null);
+        setLoadingResponseApi(true);
+        const genderAndProbability = await determineTheGender(firstnameValue);
+        setUser({
+          ...user,
+          firstname: firstLetterCase(firstnameValue),
+          lastname: firstLetterCase(lastnameValue),
+          gender: firstLetterCase(genderAndProbability.gender),
+          probability: genderAndProbability.probability,
+        });
+        setLoadingResponseApi(false);
+        return setFormToDisplay(1);
+      } else {
+        setUser({
+          ...user,
+          lastname: firstLetterCase(lastnameValue),
+        });
+        return setFormToDisplay(1);
+      }
+    } catch (error) {
       setLoadingResponseApi(false);
-      return setFormToDisplay(1);
-    } else {
-      setUser({
-        ...user,
-        lastname: firstLetterCase(lastnameValue),
-      });
-      return setFormToDisplay(1);
+      setErrorMessage("Oups, we don't find this firstname, try again please");
     }
   };
 
