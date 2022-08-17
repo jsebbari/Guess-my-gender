@@ -4,12 +4,22 @@
   align-items: center;
 }
 
-.gender-container {
+.gender-probability-list {
   color: white;
   padding: 3rem;
-  background-color: #79142a6d;
+  background-color: #79142aad;
 }
 
+.gender-probability-list li {
+  list-style-type: none;
+  color: silver;
+}
+
+.gender-probability-items {
+  font-size: larger;
+  font-weight: bold;
+  color: white;
+}
 .step-two-form-container {
   display: flex;
   flex-direction: column;
@@ -22,7 +32,7 @@
     flex-direction: column;
   }
 
-  .gender-container {
+  .gender-probability-list {
     margin-bottom: 1rem;
   }
 }

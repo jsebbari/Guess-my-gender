@@ -24,8 +24,7 @@ export const progressBarSetting = (tab) => {
       <ProgressBar
         completed={50}
         className="progress-bar"
-        bgColor="#79142a6d"
-        labelColor="black"
+        bgColor="#79142aee"
       />
     );
   } else if (tab === 2) {
@@ -33,8 +32,7 @@ export const progressBarSetting = (tab) => {
       <ProgressBar
         completed={100}
         className="progress-bar"
-        bgColor="#79142a6d"
-        labelColor="black"
+        bgColor="#79142aee"
       />
     );
   }

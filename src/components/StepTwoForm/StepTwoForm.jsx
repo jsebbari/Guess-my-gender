@@ -51,14 +51,19 @@ export default function StepTwoForm(props) {
 
   return (
     <div className="step-two-form">
-      <div className="gender-container">
-        <p>
-          Gender: <span>{gender}</span>
-        </p>
-        <p>
-          Probability: <span>{probability} %</span>
-        </p>
-      </div>
+      <ul className="gender-probability-list">
+        <li>
+          <p>
+            Gender: <span className="gender-probability-items">{gender}</span>
+          </p>
+        </li>
+        <li>
+          <p>
+            Probability:
+            <span className="gender-probability-items">{probability} %</span>
+          </p>
+        </li>
+      </ul>
       <form onSubmit={handleSubmit} className="forms">
         {setErrorMessage !== null && (
           <p className="error-message">{errorMessage}</p>

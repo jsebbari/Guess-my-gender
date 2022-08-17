@@ -53,7 +53,8 @@ export default function StepOneForm(props) {
       if (lastnameValue === "" || firstnameValue === "") {
         return setErrorMessage("Please, complete all inputs");
       } else if (
-        user === null || user.firstname !== firstLetterCase(firstnameValue)
+        user === null ||
+        user.firstname !== firstLetterCase(firstnameValue)
       ) {
         setErrorMessage(null);
         setLoadingResponseApi(true);
