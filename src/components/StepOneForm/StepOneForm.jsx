@@ -78,7 +78,6 @@ export default function StepOneForm(props) {
     } catch (error) {
       setLoadingResponseApi(false);
       setErrorMessage("Oups, we don't find this firstname, try again please");
-      console.error(error);
     }
   };
 
