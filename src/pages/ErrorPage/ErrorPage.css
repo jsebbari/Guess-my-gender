@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  word-spacing: 5px;
 }
 
 .back-to-home-btn {
