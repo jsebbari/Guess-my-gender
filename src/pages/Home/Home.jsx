@@ -4,7 +4,9 @@ import StepOneForm from "../../components/StepOneForm";
 import StepTwoForm from "../../components/StepTwoForm";
 import Result from "../../components/Result";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
-import { progressBarSetting, titleGenerator } from "./functions/homeFunctions";
+import {  titleGenerator } from "./functions/homeFunctions";
+import { progressBarSetting } from "./functions/homeFunctions";
+
 
 export default function Home() {
   //states _______________________________________________________________________________
@@ -29,12 +31,12 @@ export default function Home() {
         <h1 className="title-form">{titleGenerator(stepToDisplay)}</h1>
         {progressBarSetting(stepToDisplay)}
         {stepToDisplay === 0 && (
-          <StepOneForm setstepToDisplay={setStepToDisplay} />
+          <StepOneForm setStepToDisplay={setStepToDisplay} />
         )}
         {stepToDisplay === 1 && (
-          <StepTwoForm setstepToDisplay={setStepToDisplay} />
+          <StepTwoForm setStepToDisplay={setStepToDisplay} />
         )}
-        {stepToDisplay === 2 && <Result setstepToDisplay={setStepToDisplay} />}
+        {stepToDisplay === 2 && <Result setStepToDisplay={setStepToDisplay} />}
       </div>
     </div>
   );

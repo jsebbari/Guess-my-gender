@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect, useRef } from "react";
-import { UserContext } from "../../context/UserContext";
 import "../../styles/forms.css";
 import "./StepOneForm.css";
+import { UserContext } from "../../context/UserContext";
+import BeatLoader from "react-spinners/BeatLoader";
 import { determineTheGender } from "../../Apis/GenderApiFunctions";
 import { firstLetterCase } from "./functions/stepOneFunctions";
-import BeatLoader from "react-spinners/BeatLoader";
 
 export default function StepOneForm(props) {
   //context _______________________________________________________________________________
@@ -78,6 +78,7 @@ export default function StepOneForm(props) {
     } catch (error) {
       setLoadingResponseApi(false);
       setErrorMessage("Oups, we don't find this firstname, try again please");
+      console.error(error);
     }
   };
 
