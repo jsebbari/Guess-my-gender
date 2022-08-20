@@ -29,7 +29,7 @@ export default function StepOneForm(props) {
   }, [user]);
 
   // variables __________________________________________________________________________
-  const { setFormToDisplay } = props;
+  const { setStepToDisplay } = props;
   const loader = (
     <BeatLoader color="silver" loading={loadingResponseApi} size={10} />
   );
@@ -67,13 +67,13 @@ export default function StepOneForm(props) {
           probability: genderAndProbability.probability,
         });
         setLoadingResponseApi(false);
-        return setFormToDisplay(1);
+        return setStepToDisplay(1);
       } else {
         setUser({
           ...user,
           lastname: firstLetterCase(lastnameValue),
         });
-        return setFormToDisplay(1);
+        return setStepToDisplay(1);
       }
     } catch (error) {
       setLoadingResponseApi(false);

@@ -9,33 +9,33 @@ import { titleGenerator } from "./functions/homeFunctions";
 
 export default function Home() {
   //states _______________________________________________________________________________
-  const [formToDisplay, setFormToDisplay] = useState(0);
+  const [stepToDisplay, setStepToDisplay] = useState(0);
 
   //functions ____________________________________________________________________________
-  const backStep = () => {
-    formToDisplay > 0 && setFormToDisplay(formToDisplay - 1);
+  const handleBackStep = () => {
+    stepToDisplay > 0 && setStepToDisplay(stepToDisplay - 1);
   };
 
   return (
     <div className="home">
       <div className="forms-container">
-        {formToDisplay > 0 && (
+        {stepToDisplay > 0 && (
           <BsArrowLeftSquareFill
             size={40}
             color="silver"
             className="back-button"
-            onClick={backStep}
+            onClick={handleBackStep}
           />
         )}
-        <h1 className="title-form">{titleGenerator(formToDisplay)}</h1>
-        {progressBarSetting(formToDisplay)}
-        {formToDisplay === 0 && (
-          <StepOneForm setFormToDisplay={setFormToDisplay} />
+        <h1 className="title-form">{titleGenerator(stepToDisplay)}</h1>
+        {progressBarSetting(stepToDisplay)}
+        {stepToDisplay === 0 && (
+          <StepOneForm setstepToDisplay={setStepToDisplay} />
         )}
-        {formToDisplay === 1 && (
-          <StepTwoForm setFormToDisplay={setFormToDisplay} />
+        {stepToDisplay === 1 && (
+          <StepTwoForm setstepToDisplay={setStepToDisplay} />
         )}
-        {formToDisplay === 2 && <Result setFormToDisplay={setFormToDisplay} />}
+        {stepToDisplay === 2 && <Result setstepToDisplay={setStepToDisplay} />}
       </div>
     </div>
   );
