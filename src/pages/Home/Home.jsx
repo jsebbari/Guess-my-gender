@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./Home.css";
-import { BsArrowLeftSquareFill } from "react-icons/bs";
 import StepOneForm from "../../components/StepOneForm";
 import StepTwoForm from "../../components/StepTwoForm";
 import Result from "../../components/Result";
+import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { progressBarSetting } from "./functions/homeFunctions";
 import { titleGenerator } from "./functions/homeFunctions";
-import React from "react";
 
 export default function Home() {
   //states _______________________________________________________________________________

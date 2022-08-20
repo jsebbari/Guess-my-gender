@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect, useRef } from "react";
+import { UserContext } from "../../context/UserContext";
 import "../../styles/forms.css";
 import "./StepOneForm.css";
-import { UserContext } from "../../context/UserContext";
-import BeatLoader from "react-spinners/BeatLoader";
 import { determineTheGender } from "../../Apis/GenderApiFunctions";
 import { firstLetterCase } from "./functions/stepOneFunctions";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function StepOneForm(props) {
   //context _______________________________________________________________________________
