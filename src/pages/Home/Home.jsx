@@ -4,8 +4,7 @@ import StepOneForm from "../../components/StepOneForm";
 import StepTwoForm from "../../components/StepTwoForm";
 import Result from "../../components/Result";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
-import {  titleGenerator, progressBarSetting} from "./functions/homeFunctions";
-
+import { titleGenerator, progressBarSetting } from "./functions/homeFunctions";
 
 export default function Home() {
   //states _______________________________________________________________________________

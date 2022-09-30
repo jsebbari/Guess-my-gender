@@ -59,7 +59,7 @@ export default function StepTwoForm(props) {
         <li>
           <p>
             Probability:
-            <span className="gender-probability-items">{probability} %</span>
+            <span className="gender-probability-items">{probability*100} %</span>
           </p>
         </li>
       </ul>
